@@ -21,12 +21,12 @@
 ### What is this repository about?
 
 > [!NOTE]  
-> This repository contains my personal learning progress with WebGL, Three.js, React Three Fiber (R3F), and Shaders based on the Three.js Journey course that i personally re-written in Typescript and incorporating both classic and modern techniques where applicable.
+> This repository documents my learning progress with **WebGL**, **Three.js**, **React Three Fiber (R3F)**, and **Shaders**. It's based on the Three.js Journey course, featuring improved source code that I've rewritten in **TypeScript** and incorporating both classic and modern techniques where applicable.
+>
+> This repository is intended as a personal reference for future use, but feel free to use it for educational purposes as well.
 
-I completed the Three.js Journey course in 2023. Since then, Three.js has undergone many changes and introduced several new features. The course itself has also been updated with new lessons on shaders and a subtitle feature. While it's an excellent course, it's taught using vanilla JavaScript to keep it beginner-friendly.
+I completed the [Three.js Journey](https://threejs-journey.com) course in 2023. Since then, Three.js has undergone many changes and introduced several new features. The course itself has also been updated with new lessons on shaders and a subtitle feature. While it's an excellent course, it's taught using vanilla JavaScript to keep it beginner-friendly.
 
 Since my job doesn’t involve Three.js and I haven’t had much hands-on experience with it, I’ve forgotten most of what I previously learned. I may have also missed some key concepts when I first took the course in 2023, especially with all the recent updates to Three.js. With that in mind, I’ve decided to revisit the Three.js Journey course to re-learn and strengthen my understanding.
 
-As I re-learn Three.js, I'm documenting my entire learning journey, capturing everything I gain from the course, along with insights shared by the community on the Discord server. I'm also enhancing the original lesson's source code by rewriting it in TypeScript, applying best practices, and incorporating both classic and modern techniques where applicable.
-
-This repository is intended as a personal reference for future use, but feel free to use it for educational purposes as well.
+As I re-learn Three.js, I'm documenting my entire learning journey, capturing everything I gain from the course, along with insights shared by the community on the **Discord** server. I'm also enhancing the original lesson's source code by rewriting it in **TypeScript**, applying best practices, and incorporating both classic and modern techniques where applicable.
