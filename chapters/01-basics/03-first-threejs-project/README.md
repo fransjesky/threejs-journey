@@ -44,7 +44,6 @@ import { Canvas } from "@react-three/fiber";
 function main() {
   return (
     <Canvas>
-      {/* Your 3D content */}
     </Canvas>
   )
 }
