@@ -37,10 +37,13 @@ In React apps, you don't manipulate the DOM manually, you use JSX:
 ```tsx
 import { Canvas } from "@react-three/fiber";
 
-<Canvas>{/* Your 3D content */}</Canvas>;
+<Canvas>
+  {/* Your 3D content */}
+</Canvas>;
 ```
 
 Under the hood, React Three Fiber still use THREE.WebGLRenderer, but it abstracts away canvas creation and rendering logic. You can also customize canvas props via the `<Canvas />` component.
 
 > [!IMPORTANT]  
-> Using the `<Canvas />` component from React Three Fiber is exclusively applicable to React-based projects; it cannot be used with vanilla Three.js.
+> Using the `<Canvas />` component from React Three Fiber is exclusively applicable to React-based project.
+> That component cannot be used with vanilla Three.js.
