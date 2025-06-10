@@ -10,19 +10,32 @@ const canvas = document.getElementById("webgl") as HTMLCanvasElement;
 if (!canvas) {
   throw new Error("Canvas element does not found");
 }
+const scene = new THREE.Scene();
 
+/**
+ * Object containing the width and height of the canvas.
+ * @type {SizesType}
+ */
 const sizes: SizesType = {
   width: canvas.getBoundingClientRect().width,
   height: canvas.getBoundingClientRect().height,
 };
 
-const scene = new THREE.Scene();
+// camera
 const camera = new THREE.PerspectiveCamera(
   75,
   sizes.width / sizes.height,
   1,
   100,
 );
+
+/**
+ * While it is technically possible to not add the camera to the scene,
+ * it is highly recommended to do so. Omitting the camera from the scene
+ * can lead to unexpected issues, particularly with camera-related
+ * or distance calculations.
+ */
+scene.add(camera);
 camera.position.z = 3;
 
 // 3d object
@@ -37,7 +50,5 @@ const renderer = new THREE.WebGLRenderer({
   antialias: true,
   alpha: false,
 });
-
 renderer.setSize(sizes.width, sizes.height);
-
 renderer.render(scene, camera);
