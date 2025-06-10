@@ -38,13 +38,14 @@ document.body.appendChild(renderer.domElement);
 
 In React apps, you don't manipulate the DOM manually, you use JSX:
 
-```tsx
+```jsx
 import { Canvas } from "@react-three/fiber";
 
 function main() {
   return (
     <Canvas>
-    </Canvas>
+      {/* 3D content */}
+    </Canvas>;
   )
 }
 ```
