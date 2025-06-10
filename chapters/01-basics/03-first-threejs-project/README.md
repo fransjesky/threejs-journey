@@ -45,7 +45,7 @@ function main() {
   return (
     <Canvas>
       {/* Your 3D content */}
-    </Canvas>;
+    </Canvas>
   )
 }
 ```
