@@ -30,6 +30,8 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 scene.add(camera);
+camera.position.x = 1;
+camera.position.y = 2;
 camera.position.z = 3;
 
 // group
@@ -38,19 +40,11 @@ scene.add(group);
 
 // 3d objects
 const geometry = new THREE.BoxGeometry(1, 1, 1);
+const material = new THREE.MeshNormalMaterial();
 
-const rCube = new THREE.Mesh(
-  geometry,
-  new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-);
-const gCube = new THREE.Mesh(
-  geometry,
-  new THREE.MeshBasicMaterial({ color: 0x00ff00 }),
-);
-const bCube = new THREE.Mesh(
-  geometry,
-  new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-);
+const rCube = new THREE.Mesh(geometry, material);
+const gCube = new THREE.Mesh(geometry, material);
+const bCube = new THREE.Mesh(geometry, material);
 
 rCube.position.x = -2;
 bCube.position.x = 2;
@@ -87,7 +81,7 @@ scene.add(axesHelper);
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
   antialias: true,
-  alpha: false,
+  alpha: true,
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.render(scene, camera);
