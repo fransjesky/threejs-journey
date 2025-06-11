@@ -112,3 +112,7 @@ function animate(time: number) {
   renderer.render(scene, camera);
 }
 ```
+
+While animation libraries like GSAP do indeed manage their own requestAnimationFrame (rAF) loops, this doesn't inherently mean you'll have one rAF for GSAP and another for your Three.js scene, leading to performance issues. The act of simply calling a function is negligible for a computer; what truly impacts performance is the work performed inside that function.
+
+Essentially, rAF is just a mechanism to schedule a function call for the next frame. Therefore, having multiple entities requesting animation frames doesn't negatively affect performance directly. It's important to note that you can also configure GSAP to update only when explicitly instructed, which can be useful for precise update ordering. However, this is an advanced usage not typically required for most projects.
