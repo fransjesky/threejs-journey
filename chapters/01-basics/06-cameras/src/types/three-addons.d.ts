@@ -1,3 +1,3 @@
-declare module "three/addons/controls/OrbitControls.js" {
-  export * from "three/examples/jsm/controls/OrbitControls.js";
+declare module "three/addons/controls/OrbitControls" {
+  export * from "three/examples/jsm/controls/OrbitControls";
 }
