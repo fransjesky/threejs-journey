@@ -1,0 +1,20 @@
+{
+  "name": "08-geometries",
+  "version": "1.0.0",
+  "main": "dist/script.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "author": "Frans Jesky",
+  "license": "MIT",
+  "description": "Three.js Journey Chapter 01 (Basics) - Lesson 08",
+  "dependencies": {
+    "three": "^0.177.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.177.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}
