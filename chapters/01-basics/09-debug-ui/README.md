@@ -55,9 +55,16 @@ const debugObj: DebugType = {
 2. Best practice for adding color tweak configurations.
 
 ```tsx
+interface DebugType {
+  color: string;
+}
+
+const debugObj: DebugType = {
+  color: "#90b4ff",
+};
+
 const material = new THREE.MeshBasicMaterial({
   color: debugObj.color,
-  wireframe: false,
 });
 
 gui
@@ -65,5 +72,82 @@ gui
   .onChange((value: string) => {
     material.color.set(value);
   })
-  .name("cube color");
+  .name("tweak color");
+```
+
+3. Tweaking geometry
+
+Sometimes, when working with Three.js, not all configurations can be applied directly using a debug UI, for example, with Geometry. Here is an example of how to tweak the subdivision for geometry.
+
+```tsx
+interface DebugType {
+  subdivision: number;
+}
+
+const debugObj: DebugType = {
+  subdivision: 1,
+};
+
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+gui
+  .add(debugObj, "subdivision")
+  .min(1)
+  .max(20)
+  .step(1)
+  .onChange(() => {
+    mesh.geometry.dispose();
+    mesh.geometry = new THREE.BoxGeometry(
+      1,
+      1,
+      1,
+      debugObj.subdivision,
+      debugObj.subdivision,
+      debugObj.subdivision,
+    );
+  })
+  .name("tweak subdivision");
+```
+
+It's really important to dispose of existing geometry when making changes to it. Even if the geometry doesn't appear duplicated, by default, it's still saved somewhere in GPU memory. Changing things without disposing of the existing geometry you're modifying will greatly impact performance.
+
+4. How to organize tweak configurations
+
+In lil-gui, you can use a method to create folders, which allows you to categorize configurations. This is a good practice to keep your debug UI panel clean, especially as projects grow larger and configurations are likely to increase.
+
+```tsx
+const objTweak = gui.addFolder("Object Tweaks");
+```
+
+Then, instead of using gui to create tweaks, use the objTweak variable:
+
+```tsx
+objTweak.add(mesh.position, "y", -3, 3, 0.01).name("elevation");
+objTweak
+  .add(debugObj, "subdivision")
+  .min(1)
+  .max(20)
+  .step(1)
+  .onChange(() => {
+    mesh.geometry.dispose();
+    mesh.geometry = new THREE.BoxGeometry(
+      1,
+      1,
+      1,
+      debugObj.subdivision,
+      debugObj.subdivision,
+      debugObj.subdivision,
+    );
+  })
+  .name("subdivision");
+
+objTweak.add(mesh, "visible").name("show cube?");
+objTweak.add(material, "wireframe").name("show wireframe?");
+objTweak
+  .addColor(debugObj, "color")
+  .onChange((value: string) => {
+    material.color.set(value);
+  })
+  .name("color");
+objTweak.add(debugObj, "spin").name("Spin Cube!");
 ```
